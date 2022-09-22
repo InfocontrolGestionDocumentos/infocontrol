@@ -1,0 +1,15 @@
+{
+    "local": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-infocontrol2-local-170827-authRole",
+            "UnauthRoleArn": "arn:aws:iam::840571452065:role/amplify-infocontrol2-local-170827-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::840571452065:role/amplify-infocontrol2-local-170827-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "amplify-infocontrol2-local-170827-deployment",
+            "UnauthRoleName": "amplify-infocontrol2-local-170827-unauthRole",
+            "StackName": "amplify-infocontrol2-local-170827",
+            "StackId": "arn:aws:cloudformation:us-east-2:840571452065:stack/amplify-infocontrol2-local-170827/e89b2b20-6c78-11ea-ad75-0ade6091f9d8",
+            "AmplifyAppId": "d3btw0nk948ebh"
+        }
+    }
+}
