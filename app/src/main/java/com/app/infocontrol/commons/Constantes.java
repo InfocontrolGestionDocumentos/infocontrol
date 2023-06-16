@@ -4,13 +4,14 @@ public class Constantes {
 
     /*public static final String URL_BASE = "https://www.infocontrol.com.ar/web/api/mobile/";
     public static final String URL_FOTO = "https://www.infocontrol.com.ar/web/";*/
+
     /*  Production */
-    public static final String URL_BASE = "https://www.infocontrol.tech/web/api/mobile/";
-    public static final String URL_FOTO = "https://www.infocontrol.tech/web/";
+    //public static final String URL_BASE = "https://www.infocontrol.tech/web/api/mobile/";
+    //public static final String URL_FOTO = "https://www.infocontrol.tech/web/";
 
     /*  Test */
-    /*public static final String URL_BASE = "https://www.infocontrol.com.ar/desarrollo/api/mobile/";
-    public static final String URL_FOTO = "https://www.infocontrol.com.ar/desarrollo/";*/
+    public static final String URL_BASE = "https://www.infocontrol.com.ar/desarrollo/api/mobile/";
+    public static final String URL_FOTO = "https://www.infocontrol.com.ar/desarrollo/";
 
     /*public static final String URL_BASE = "https://www.infocontrol.com.ar/prueba/api/mobile/";
     public static final String URL_FOTO = "https://www.infocontrol.com.ar/prueba/";*/

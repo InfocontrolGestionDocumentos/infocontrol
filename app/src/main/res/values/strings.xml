@@ -20,6 +20,7 @@
     <string name="menu_send">Send</string>
     <string name="nombre_usuario">Nombre Usuario</string>
     <string name="menu_empresas">Empresas</string>
+    <string name="menu_habilitar">Habilitar I/E</string>
     <string name="nombre_empresa">Nombre de la empresa</string>
     <string name="iniciando_sesi_n">Iniciando sesión</string>
     <string name="volver">Volver</string>
@@ -43,6 +44,8 @@
     <string name="cancelar">Cancelar</string>
     <string name="olvido_su_contrasenia">¿Olvido su contraseña?</string>
     <string name="todo">TODO</string>
+    <string name="seleccione_una_empresa">Seleccione una empresa</string>
+    <string name="habilitar_ingresos_egresos">Habilitar Ingresos / Egresos</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

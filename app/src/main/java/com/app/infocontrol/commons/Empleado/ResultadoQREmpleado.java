@@ -12,6 +12,9 @@ public class ResultadoQREmpleado {
     @SerializedName("dni")
     @Expose
     private String dni;
+    @SerializedName("cuit")
+    @Expose
+    private String cuit;
 
     public String getEntidad() {
         return entidad;
@@ -27,6 +30,14 @@ public class ResultadoQREmpleado {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    public String getCuit() {
+        return cuit;
+    }
+
+    public void setCuit(String cuit) {
+        this.cuit = cuit;
     }
 
 }

@@ -34,5 +34,9 @@ public interface EmpleadoService {
     @Headers("Content-type:application/json")
     @POST("ingresos_egresos/action_resource")
     Call<ResponseRegistroEmpleado> getAccionDeEmpleado(@Query("Bearer") String tokenBearer, @Body RequestAccionARegistrarEmpleado action);
+
+    @GET("proveedores/listar")
+    Call<ResponseEmpleados> getProveedores(@Query("Bearer") String tokenBearer, @Query("id_empresas") String id_empresas,
+                                         @Query("fecha_hora") String fecha_hora);
 }
 

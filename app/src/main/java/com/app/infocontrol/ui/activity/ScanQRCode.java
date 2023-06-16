@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.app.infocontrol.commons.Constantes;
 import com.app.infocontrol.commons.Empleado.ResultadoQREmpleado;
@@ -28,14 +29,19 @@ public class ScanQRCode extends AppCompatActivity implements ZXingScannerView.Re
     public void handleResult(Result result) {
 
         if (result.toString().length() != 0) {
-            String dniEscaneado, tipoEscaneado;
+            String dniEscaneado, cuitEscaneado, tipoEscaneado;
 
             if (result.toString().charAt(0) == '{' && result.toString().charAt(result.toString().length() - 1) == '}') {
                 Gson gson = new Gson();
                 ResultadoQREmpleado resultadoQREmpleado = gson.fromJson(result.toString(), ResultadoQREmpleado.class);
                 dniEscaneado = resultadoQREmpleado.getDni();
+                cuitEscaneado = resultadoQREmpleado.getCuit();
                 tipoEscaneado = resultadoQREmpleado.getEntidad();
-                if (dniEscaneado == null) {
+                if (dniEscaneado == null && cuitEscaneado != null) {
+                    String dni = cuitEscaneado.substring(2, cuitEscaneado.length()-1);
+                    dniEscaneado = dni;
+                }
+                if (dniEscaneado == null && cuitEscaneado == null) {
                     ResultadoQRVehiculo resultadoQRVehiculo = gson.fromJson(result.toString(), ResultadoQRVehiculo.class);
                     dniEscaneado = resultadoQRVehiculo.getVehiculo();
                     tipoEscaneado = resultadoQRVehiculo.getEntidad();

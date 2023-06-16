@@ -26,9 +26,11 @@ import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.nfc.NfcAdapter;
 import android.nfc.tech.NfcA;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
@@ -237,8 +239,19 @@ public class BuscarActivity extends AppCompatActivity {
         });
 
         /*  Inicializacion de variables para NFC */
-        pendingIntent = PendingIntent.getActivity(
-                this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+        /* pendingIntent = PendingIntent.getActivity(
+                this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0); */
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            pendingIntent = PendingIntent.getActivity(this,
+                    0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+        }else {
+            pendingIntent = PendingIntent.getActivity(this,
+                    0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), PendingIntent.FLAG_UPDATE_CURRENT);
+
+        }
+
         IntentFilter mifare = new IntentFilter((NfcAdapter.ACTION_TECH_DISCOVERED));
         filters = new IntentFilter[]{mifare};
         techs = new String[][]{new String[]{NfcA.class.getName()}};
@@ -256,7 +269,7 @@ public class BuscarActivity extends AppCompatActivity {
         if(marcarIngreso != null) {
             for (String idMarcaIngreso : marcarIngreso) {
                 if (idEmpresa.equals(idMarcaIngreso)) {
-                    rbVeiculo.setVisibility(View.GONE);
+//                    rbVeiculo.setVisibility(View.GONE);
                     break;
                 }
             }
@@ -698,12 +711,12 @@ public class BuscarActivity extends AppCompatActivity {
 
                 assert tipo != null;
                 switch (tipo.toLowerCase()) {
+                    case Constantes.TIPO_PROVEEDOR:
                     case Constantes.TIPO_EMPLEADO:
                         assert idEscaneado != null;
                         rbEmpleado.setChecked(true);
                         buscarEmpleado(idEscaneado);
                         break;
-                    case Constantes.TIPO_PROVEEDOR:
                     case Constantes.TIPO_VEHICULO:
                         rbVeiculo.setChecked(true);
                         buscarVehiculo(idEscaneado);
@@ -780,6 +793,7 @@ public class BuscarActivity extends AppCompatActivity {
             RequestRegistrarEmpleado registrarEmpleado = new RequestRegistrarEmpleado(registro.getIdEmpresa(), registro.getIdRegistro(),
                     usuario.getIdUsuario());
             registerEmpleado(progressBarLy, dialog, registrarEmpleado);
+
         });
 
         /*dialog.setOnDismissListener(dialog1 -> {
